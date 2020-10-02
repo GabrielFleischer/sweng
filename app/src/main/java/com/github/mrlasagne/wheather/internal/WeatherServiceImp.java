@@ -22,9 +22,11 @@ import javax.net.ssl.HttpsURLConnection;
 public class WeatherServiceImp implements WeatherService {
 
     private final Activity mainActivity;
+    private final String key;
 
-    public WeatherServiceImp(Activity mainActivity) {
+    public WeatherServiceImp(Activity mainActivity, String key) {
         this.mainActivity = mainActivity;
+        this.key = key;
     }
 
     @Override
@@ -43,9 +45,7 @@ public class WeatherServiceImp implements WeatherService {
                     address.getLocality(),
                     address.getAdminArea(),
                     address.getCountryCode(),
-                    "d06efbb38d6ef02766d525432ddd6dc6"));
-
-            System.out.println("Querying from : " + url);
+                    key));
 
             HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
             connection.setReadTimeout(3000);
