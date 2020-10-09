@@ -4,7 +4,6 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 
@@ -16,6 +15,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.qualifiers.ActivityContext;
+
 public class LocationServiceImp implements LocationService {
 
     private static final List<String> PERMISSIONS = Collections.unmodifiableList(Arrays.asList(
@@ -25,9 +28,10 @@ public class LocationServiceImp implements LocationService {
     private final Activity mainActivity;
     private final LocationManager locationManager;
 
-    public LocationServiceImp(final Activity activity) {
-        this.mainActivity = activity;
-        this.locationManager = (LocationManager) activity.getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
+    @Inject
+    public LocationServiceImp(@ActivityContext final Context context) {
+        this.mainActivity = (Activity) context;
+        this.locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
     }
 
     @Override

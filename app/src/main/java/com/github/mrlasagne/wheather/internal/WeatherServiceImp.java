@@ -2,6 +2,7 @@ package com.github.mrlasagne.wheather.internal;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.os.StrictMode;
@@ -9,6 +10,7 @@ import android.util.JsonReader;
 
 import androidx.core.app.ActivityCompat;
 
+import com.github.mrlasagne.wheather.R;
 import com.github.mrlasagne.wheather.Weather;
 import com.github.mrlasagne.wheather.WeatherService;
 
@@ -17,16 +19,20 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 
+import javax.inject.Inject;
 import javax.net.ssl.HttpsURLConnection;
+
+import dagger.hilt.android.qualifiers.ActivityContext;
 
 public class WeatherServiceImp implements WeatherService {
 
     private final Activity mainActivity;
     private final String key;
 
-    public WeatherServiceImp(Activity mainActivity, String key) {
-        this.mainActivity = mainActivity;
-        this.key = key;
+    @Inject
+    public WeatherServiceImp(@ActivityContext Context context) {
+        this.mainActivity = (Activity) context;
+        this.key = mainActivity.getString(R.string.openweather_api_key);
     }
 
     @Override
@@ -58,7 +64,7 @@ public class WeatherServiceImp implements WeatherService {
 
             int responseCode = connection.getResponseCode();
             if (responseCode != 200)
-                throw new IOException("Bad response !");
+                throw new IOException("Bad response : " + responseCode);
 
             InputStream stream = connection.getInputStream();
 

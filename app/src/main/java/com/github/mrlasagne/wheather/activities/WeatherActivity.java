@@ -18,7 +18,20 @@ import com.github.mrlasagne.wheather.internal.WeatherServiceImp;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class WeatherActivity extends AppCompatActivity {
+
+    @Inject
+    LocationService locationService;
+    @Inject
+    GeocodingService geocodingService;
+    @Inject
+    WeatherService weatherService;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +40,6 @@ public class WeatherActivity extends AppCompatActivity {
         Intent intent = getIntent();
         TextView main = findViewById(R.id.weatherMain);
         TextView desc = findViewById(R.id.desc);
-        
-        final LocationService locationService = new LocationServiceImp(this);
-        final GeocodingService geocodingService = new GeocodingServiceImp(this.getApplicationContext());
-        final WeatherService weatherService = new WeatherServiceImp(this, getString(R.string.openweather_api_key));
 
         final String loc = intent.getStringExtra(MainActivity.EXTRA_WEATHER);
         try {

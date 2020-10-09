@@ -10,11 +10,16 @@ import com.github.mrlasagne.wheather.GeocodingService;
 import java.io.IOException;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.qualifiers.ApplicationContext;
+
 public class GeocodingServiceImp implements GeocodingService {
 
     private final Geocoder geocoder;
 
-    public GeocodingServiceImp(final Context context) {
+    @Inject
+    public GeocodingServiceImp(@ApplicationContext final Context context) {
         geocoder = new Geocoder(context);
     }
 

@@ -9,6 +9,9 @@ import android.widget.EditText;
 
 import com.github.mrlasagne.wheather.R;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_WEATHER = MainActivity.class + ":WEATHER";
