@@ -5,7 +5,7 @@ import android.location.Location;
 
 import java.io.IOException;
 
-public interface GeocodingService {
+public interface GeocodeService {
 
     Address convertToAddress(Location location) throws IOException;
 

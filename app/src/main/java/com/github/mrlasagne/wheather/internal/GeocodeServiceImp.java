@@ -5,7 +5,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 
-import com.github.mrlasagne.wheather.GeocodingService;
+import com.github.mrlasagne.wheather.GeocodeService;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,12 +14,12 @@ import javax.inject.Inject;
 
 import dagger.hilt.android.qualifiers.ApplicationContext;
 
-public class GeocodingServiceImp implements GeocodingService {
+public class GeocodeServiceImp implements GeocodeService {
 
     private final Geocoder geocoder;
 
     @Inject
-    public GeocodingServiceImp(@ApplicationContext final Context context) {
+    public GeocodeServiceImp(@ApplicationContext final Context context) {
         geocoder = new Geocoder(context);
     }
 

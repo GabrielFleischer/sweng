@@ -1,6 +1,6 @@
 package com.github.mrlasagne.wheather;
 
-import com.github.mrlasagne.wheather.internal.GeocodingServiceImp;
+import com.github.mrlasagne.wheather.internal.GeocodeServiceImp;
 import com.github.mrlasagne.wheather.internal.LocationServiceImp;
 import com.github.mrlasagne.wheather.internal.WeatherServiceImp;
 
@@ -19,8 +19,8 @@ public abstract class WeatherModule {
     );
 
     @Binds
-    public abstract GeocodingService bindGeocodingService(
-            GeocodingServiceImp geocodingServiceImp
+    public abstract GeocodeService bindGeocodingService(
+            GeocodeServiceImp geocodingServiceImp
     );
 
     @Binds

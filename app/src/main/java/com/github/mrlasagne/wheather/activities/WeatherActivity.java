@@ -7,14 +7,11 @@ import android.location.Address;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.github.mrlasagne.wheather.GeocodingService;
+import com.github.mrlasagne.wheather.GeocodeService;
 import com.github.mrlasagne.wheather.LocationService;
 import com.github.mrlasagne.wheather.R;
 import com.github.mrlasagne.wheather.Weather;
 import com.github.mrlasagne.wheather.WeatherService;
-import com.github.mrlasagne.wheather.internal.GeocodingServiceImp;
-import com.github.mrlasagne.wheather.internal.LocationServiceImp;
-import com.github.mrlasagne.wheather.internal.WeatherServiceImp;
 
 import java.io.IOException;
 
@@ -25,13 +22,10 @@ import dagger.hilt.android.AndroidEntryPoint;
 @AndroidEntryPoint
 public class WeatherActivity extends AppCompatActivity {
 
+    @Inject LocationService locationService;
     @Inject
-    LocationService locationService;
-    @Inject
-    GeocodingService geocodingService;
-    @Inject
-    WeatherService weatherService;
-
+    GeocodeService geocodeService;
+    @Inject WeatherService weatherService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +37,7 @@ public class WeatherActivity extends AppCompatActivity {
 
         final String loc = intent.getStringExtra(MainActivity.EXTRA_WEATHER);
         try {
-            final Address address = loc == null ? geocodingService.convertToAddress(locationService.getDeviceLocation()) : geocodingService.getAddress(loc);
+            final Address address = loc == null ? geocodeService.convertToAddress(locationService.getDeviceLocation()) : geocodeService.getAddress(loc);
             if(address == null) return;
             final Weather weather = weatherService.getWeatherAt(address);
 
