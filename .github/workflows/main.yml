@@ -14,3 +14,7 @@ jobs:
       with:
         api-level: 29
         script: ./gradlew connectedCheck
+    - name: publish coverage
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
