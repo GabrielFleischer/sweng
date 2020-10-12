@@ -1,4 +1,4 @@
-package com.github.mrlasagne.wheather.activities;
+package com.github.mrlasagne.weather.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import com.github.mrlasagne.wheather.R;
+import com.github.mrlasagne.weather.R;
 
 import dagger.hilt.android.AndroidEntryPoint;
 

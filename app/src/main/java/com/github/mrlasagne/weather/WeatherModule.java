@@ -1,8 +1,8 @@
-package com.github.mrlasagne.wheather;
+package com.github.mrlasagne.weather;
 
-import com.github.mrlasagne.wheather.internal.GeocodeServiceImp;
-import com.github.mrlasagne.wheather.internal.LocationServiceImp;
-import com.github.mrlasagne.wheather.internal.WeatherServiceImp;
+import com.github.mrlasagne.weather.internal.GeocodeServiceImp;
+import com.github.mrlasagne.weather.internal.LocationServiceImp;
+import com.github.mrlasagne.weather.internal.WeatherServiceImp;
 
 import dagger.Binds;
 import dagger.Module;

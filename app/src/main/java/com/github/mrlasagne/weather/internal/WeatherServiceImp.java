@@ -1,18 +1,18 @@
-package com.github.mrlasagne.wheather.internal;
+package com.github.mrlasagne.weather.internal;
 
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.location.Address;
 import android.os.StrictMode;
 import android.util.JsonReader;
 
 import androidx.core.app.ActivityCompat;
 
-import com.github.mrlasagne.wheather.R;
-import com.github.mrlasagne.wheather.Weather;
-import com.github.mrlasagne.wheather.WeatherService;
+import com.github.mrlasagne.weather.Address;
+import com.github.mrlasagne.weather.R;
+import com.github.mrlasagne.weather.Weather;
+import com.github.mrlasagne.weather.WeatherService;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -49,8 +49,8 @@ public class WeatherServiceImp implements WeatherService {
 
             URL url = new URL(String.format("https://api.openweathermap.org/data/2.5/weather?q=%s,%s,%s&appid=%s",
                     address.getLocality(),
-                    address.getAdminArea(),
-                    address.getCountryCode(),
+                    address.getArea(),
+                    address.getCountry(),
                     key));
 
             HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();

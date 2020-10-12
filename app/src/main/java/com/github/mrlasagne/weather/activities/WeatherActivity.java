@@ -1,17 +1,17 @@
-package com.github.mrlasagne.wheather.activities;
+package com.github.mrlasagne.weather.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.location.Address;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.github.mrlasagne.wheather.GeocodeService;
-import com.github.mrlasagne.wheather.LocationService;
-import com.github.mrlasagne.wheather.R;
-import com.github.mrlasagne.wheather.Weather;
-import com.github.mrlasagne.wheather.WeatherService;
+import com.github.mrlasagne.weather.Address;
+import com.github.mrlasagne.weather.GeocodeService;
+import com.github.mrlasagne.weather.LocationService;
+import com.github.mrlasagne.weather.R;
+import com.github.mrlasagne.weather.Weather;
+import com.github.mrlasagne.weather.WeatherService;
 
 import java.io.IOException;
 
@@ -23,8 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class WeatherActivity extends AppCompatActivity {
 
     @Inject LocationService locationService;
-    @Inject
-    GeocodeService geocodeService;
+    @Inject GeocodeService geocodeService;
     @Inject WeatherService weatherService;
 
     @Override

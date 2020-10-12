@@ -1,4 +1,4 @@
-package com.github.mrlasagne.wheather.internal;
+package com.github.mrlasagne.weather.internal;
 
 import android.Manifest;
 import android.app.Activity;
@@ -9,7 +9,7 @@ import android.location.LocationManager;
 
 import androidx.core.app.ActivityCompat;
 
-import com.github.mrlasagne.wheather.LocationService;
+import com.github.mrlasagne.weather.LocationService;
 
 import java.util.Arrays;
 import java.util.Collections;

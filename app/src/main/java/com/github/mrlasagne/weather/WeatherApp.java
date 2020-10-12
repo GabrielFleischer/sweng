@@ -1,4 +1,4 @@
-package com.github.mrlasagne.wheather;
+package com.github.mrlasagne.weather;
 
 import android.app.Application;
 

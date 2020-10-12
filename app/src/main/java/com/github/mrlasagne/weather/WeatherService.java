@@ -1,6 +1,4 @@
-package com.github.mrlasagne.wheather;
-
-import android.location.Address;
+package com.github.mrlasagne.weather;
 
 import java.io.IOException;
 
